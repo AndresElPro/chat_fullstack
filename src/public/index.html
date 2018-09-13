@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Chat JavaScript FullStack</title>
+    <!-- BOOSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <!-- FONT AWESOME, para iconos -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!-- Mi CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body><!-- Las clases son de BOOSTRAP que vienen con diseños -->
+    
+    <!-- NAVIGATOR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="img/logo.png" alt="Unichat logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">¿Qué es Unichat?</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Probar sin registro</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registrarse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Iniciar Sesión</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contacto</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="main-header" id="headerWrap">
+        <div class="background-overlay text-white py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center justify-content-center align-self-center">
+                        <h1>Donde sientes la unidad de la humanidad</h1>
+                        <p>En este lugar puedes ser ayudado desde el problema más grande al más pequeño. Si tu estás bien el resto también</p>
+                        <a href="#" class="btn btn-outline-secondary btn-lg text-white">Saber más</a>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="img/chat.png" alt="Imagen del Producto" class="img-fluid d-none d-sm-block">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ENTER WITH OUT REGISTRATION -->
+    <section class="bg-dark text-white py-5" id="nickWrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="nickForm">
+                        <input type="text" id="nickname" class="form-control form-control-lg" placeholder="Ingresa tu nombre o nombre de usuario">
+                        <p id="nickError"></p>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <i class="fas fa-sign-in-alt"></i>  Prueba sin registros
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHAT -->
+    <div class="container" id="contentWrap">
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-1">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h6>Titulo Problema</h6>
+                    </div>
+                <div id="chat" class="card-body"></div>
+                    <form id="message-form" class="card-footer">
+                        <div class="input-group">
+                            <input type="text" id="message" class="form-control" placeholder="Escribe tu solución..."/>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary btn-block">
+                                    <i class="fas fa-location-arrow"></i>  Enviar
+                                </button>
+                            </div>
+                         </div>
+                     </form>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3>Usuarios</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="usernames"></div>
+                    </div>        
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARDS -->
+    <section class="py-5" id="cardsWrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-center border-primary">
+                        <div class="card-body">
+                            </br>
+                            <h3 class="mt-3">Soluciona tus problemas</h3>
+                            </br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center bg-primary text-white">
+                        <div class="card-body">
+                            </br>
+                            <h3 class="mt-3">Ayuda a personas</h3>
+                            </br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center border-primary">
+                        <div class="card-body">
+                            <h3>Busca soluciones con personas de todo el mundo</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="bg-light text-center" id="aboutWrap">
+        <div class="container">
+            <div class="row">
+                <div class="m-5">
+                    <h3>Por que Unichat?</h3>
+                    <p>Tendrás la oportunidad en este espacio de ser escuchado y hablar con personas de todo el mundo en busca de las mejores soluciones para nosotros!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACCORDION -->
+    <div class="container text-center p-5" id="accordionWrap">
+        <div class="row">
+            <div class="accordion col-md-12" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        De que tipo de problemas están hablando?
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Estamos hablando de problemas banales hasta problemas de suma importancia que estan afectando a una o muchas personas
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Porque registrarme?
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Al registrarte tendrás un perfil exclusivo donde tendrás registro de tus aportaciones y hacer seguimiento a problemas que hayas creado, donde podrás interactuar con más personas
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Quienes son?
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Somos un servicio con el animo de unirnos como energia para solucionar problemas de la humanidad en esta era de la individualidad
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <section class="bg-light py-5" id="contactWrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <h3>Contactanos</h3>
+                    <p>Ante cualquier duda o pregunta hablanos!</p>
+                    <form action="">
+                        <div class="input-group mb-3 ">
+                            <div class="input-group-prepend">
+                                <i class="fas fa-user input-group-text"></i>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <i class="fas fa-envelope input-group-text"></i>
+                            </div>
+                            <input type="email" class="form-control" placeholder="Correo electrónico">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <i class="fas fa-pencil-alt input-group-text"></i>
+                            </div>
+                            <textarea class="form-control" cols="30" rows="10" placeholder="Escribe tu mensaje"></textarea>
+                        </div>
+                        <button class="btn btn-primary btn-lg btn-block">
+                            Enviar
+                        </button>
+                    </form>
+                </div>
+                <div class="col-lg-3 align-self-center">
+                    <img src="img/logo2.png" alt="Logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-5">
+        <div class="container p-3 text-white text-center">
+            <p>Copyright &copy; 2018</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+    </script><!-- Jquery, se puede reemplazar por framework nuevo como react o vue-->
+    <script src="/socket.io/socket.io.js" charset="utf-8"></script><!-- Requerimos el codigo de socket.io, ya que lo vamos a utilizar -->
+    <script src="/js/main.js" charset="utf-8"></script>
+    <!-- BOOTSTRAP JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+</body>
+</html>
